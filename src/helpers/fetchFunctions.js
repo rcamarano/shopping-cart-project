@@ -2,7 +2,6 @@ export const fetchProduct = () => {
   // seu código aqui
 };
 
-
 export const fetchProductsList = async (product) => {
   const endpoint = `https://api.mercadolibre.com/sites/MLB/search?q=${product}`;
   if (!product) {
