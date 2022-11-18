@@ -29,6 +29,7 @@ const createProductList = async () => {
   createLoading();
   try {
     const listItems = await fetchProductsList('computador');
+    stopLoading();
     const listProducts = document.querySelector('.products');
     listItems.forEach((element) => {
       const listElements = createProductElement(element);
