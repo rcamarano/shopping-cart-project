@@ -13,7 +13,7 @@ const createProductList = async () => {
     listProducts.appendChild(listElements);
   });
 };
-  
+
 window.onload = () => {
   createProductList();
 };
