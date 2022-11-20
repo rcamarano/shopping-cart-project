@@ -57,8 +57,8 @@ const sumTotalPrices = () => {
 
 getList.addEventListener('click', (event) => {
   console.log(event.target.innerText);
-  const sub = event.target.parentNode.lastElementChild.lastElementChild.innerHTML;
-  const number1 = Number(sub);
+  const subTotal = event.target.parentNode.lastElementChild.lastElementChild.innerHTML;
+  const number1 = Number(subTotal);
   const number2 = Number(getTotalPrice.innerHTML);
   const result = number2 - number1;
   getTotalPrice.innerHTML = '';
@@ -68,13 +68,12 @@ getList.addEventListener('click', (event) => {
 const prductsButton = document.querySelector('.products');
 
 prductsButton.addEventListener('click', async (event) => {
-  console.log(event.target.parentNode.firstChild.innerText);
   const productId = event.target.parentNode.firstChild.innerText;
-
   saveCartID(productId);
+
   const result = await fetchProduct(productId);
   getList.appendChild(createCartProductElement(result));
-  sumItems();
+  sumTotalPrices();
 });
 
 const recoverdItem = () => {
@@ -83,7 +82,7 @@ const recoverdItem = () => {
       .appendChild(createCartProductElement(element)))));
 };
 
-window.onload = () => {
+window.onload = async () => {
   createProductList();
   sumTotalPrices();
   recoverdItem();
