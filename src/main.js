@@ -2,7 +2,7 @@ import { searchCep } from './helpers/cepFunctions';
 import './style.css';
 import { fetchProductsList } from './helpers/fetchFunctions';
 import { createProductElement, createCartProductElement } from './helpers/shopFunctions';
-import { saveCartID } from './helpers/cartFunctions';
+import { saveCartID, getSavedCartIDs } from './helpers/cartFunctions';
 
 document.querySelector('.cep-button').addEventListener('click', searchCep);
 
