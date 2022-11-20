@@ -82,7 +82,6 @@ const recoverdItem = () => {
     .then((response) => response.map((element) => getList
       .appendChild(createCartProductElement(element)))));
 };
-};
 
 window.onload = () => {
   createProductList();
