@@ -73,16 +73,15 @@ prductsButton.addEventListener('click', async (event) => {
 
   saveCartID(productId);
   const result = await fetchProduct(productId);
-  const getList = document.querySelector('.cart__products');
   getList.appendChild(createCartProductElement(result));
+  sumItems();
 });
 
 const recoverdItem = () => {
   getSavedCartIDs().map((elementId) => Promise.all([fetchProduct(elementId)])
-    .then((response) => response.map((element) => {
-      const getList = document.querySelector('.cart__products');
-      return getList.appendChild(createCartProductElement(element));
-    })));
+    .then((response) => response.map((element) => getList
+      .appendChild(createCartProductElement(element)))));
+};
 };
 
 window.onload = () => {
